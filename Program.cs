@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace lab3
 {
@@ -59,6 +55,60 @@ namespace lab3
             counter++;
         }
 
+        private House(int flatNumber)
+        {
+            counter++;
+            Id = counter;
+            FlatNumber = 45;
+        }
 
+        public void Number( ref int number, out int o)
+        {
+            new House(number);
+            o = 20;
+        }
+
+        public static void HouseInfo()
+        {
+            Console.WriteLine(typeof(House));
+        }
+
+        public override bool Equals(object obj)
+        {
+            var house = obj as House;
+            return house != null &&
+                Id == house.Id &&
+                FlatNumber == house.FlatNumber &&
+                Square == house.Square &&
+                Floor == house.Floor &&
+                NumberOfRooms == house.NumberOfRooms &&
+                Street == house.Street &&
+                BuildingType == house.BuildingType &&
+                Lifetime == house.Lifetime ;
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 17;
+                hash = hash * 23 + Id.GetHashCode();
+                hash = hash * 23 + Square.GetHashCode();
+                hash = hash * 23 + FlatNumber.GetHashCode();
+                hash = hash * 23 + Floor.GetHashCode();
+                hash = hash * 23 + NumberOfRooms.GetHashCode();
+                hash = hash * 23 + Lifetime.GetHashCode();
+                if (Street != null)                      
+                    hash = hash * 23 + Street.GetHashCode();
+                if (BuildingType != null)
+                    hash = hash * 23 + BuildingType.GetHashCode();
+                return hash;
+            }
+        }
+
+        public override string ToString()
+        {
+            return typeof(House).ToString();
+        }
     }
 }
