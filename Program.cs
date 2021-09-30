@@ -4,14 +4,13 @@ namespace lab3
 {
     class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
             House house1 = new House();
             House house2 = new House(28);
             House house3 = new House(25, 42.4f, 3, 2, "Пушкина", "панельный", 40);
             int o = 0, number = 23, numberOfRooms = 0, minFloor = 0, maxFloor = 0;
             house1.Number(ref number, out o);
-
             Console.WriteLine(house1.ToString());
             Console.WriteLine(house3.GetHashCode());
             Console.WriteLine(house1.Equals(house2));
