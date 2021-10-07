@@ -221,6 +221,10 @@ namespace lab3
             return false;
         }
 
+    }
+
+    partial class House
+    {
         public override bool Equals(object obj)
         {
             var house = obj as House;
@@ -232,7 +236,7 @@ namespace lab3
                 NumberOfRooms == house.NumberOfRooms &&
                 Street == house.Street &&
                 BuildingType == house.BuildingType &&
-                Lifetime == house.Lifetime ;
+                Lifetime == house.Lifetime;
         }
 
         public override int GetHashCode()
@@ -246,7 +250,7 @@ namespace lab3
                 hash = hash * 23 + Floor.GetHashCode();
                 hash = hash * 23 + NumberOfRooms.GetHashCode();
                 hash = hash * 23 + Lifetime.GetHashCode();
-                if (Street != null)                      
+                if (Street != null)
                     hash = hash * 23 + Street.GetHashCode();
                 if (BuildingType != null)
                     hash = hash * 23 + BuildingType.GetHashCode();
@@ -258,5 +262,6 @@ namespace lab3
         {
             return typeof(House).ToString();
         }
+
     }
 }
